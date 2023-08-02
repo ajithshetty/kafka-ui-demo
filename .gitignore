@@ -1,0 +1,18 @@
+# Default ignored files
+.idea/
+.gradle/
+build/
+logs
+backup
+ccloud.properties
+*.log
+buckets
+src/main/java/io/confluent/developer/jsonbank
+spark-scala/apps/*.jar
+spark-scala/target
+spark-scala-schema-registry/apps/*.jar
+spark-scala-schema-registry/target
+spark-scala-enrich-topic/apps/*.jar
+spark-scala-enrich-topic/target
+spark-scala-functions/target
+spark-scala-functions/apps/*.jar
