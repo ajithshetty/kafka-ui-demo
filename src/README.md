@@ -39,12 +39,9 @@ command:
 
 where `<application>` is one of
 
-|COMMANDS(links) |
+|COMMANDS |
 | ------- |
-|[basic](src/main/java/io/confluent/developer/basic/README.md)        |
-|[banksparkwrite](src/main/java/io/confluent/developer/bankspark/README.md)        |
-|[banksparkread](src/main/java/io/confluent/developer/bankspark/README.md)        |
-
+|bank|
 
 Each execution of `runStreams` will build the project first.  Each streams application will continue to run after you have started it, so once you are done
 enter a `CTRL+C` from the keyboard to shut it down.

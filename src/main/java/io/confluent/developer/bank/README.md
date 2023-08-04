@@ -15,7 +15,7 @@ Record produced - offset - 62 timestamp - 1689974156228
 ```
 Each exercise is incomplete, and it's up to you to follow the instructions and hints in the comments to get each application into running shape.  There's also a `solution` directory in each module that contains the fully completed example for you compare with your version or to help you if you get stuck.
 
-#### Basic Operations
+#### Branching and Merging Operations
 
 The basic operations exercise demonstrates using Kafka Streams stateless operations like `filter` and `mapValues`.
 You run the basic operations example with this command ` ./gradlew runStreams -Pargs=basic` and your output on the console should resemble this:

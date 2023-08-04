@@ -19,12 +19,15 @@ KAFKA-UI is comprises a lot of features:
 10. Role based access control - manage permissions to access the UI with granular precision
 11. Data masking - obfuscate sensitive data in topic messages.
 
-The first step before working with any of streams exercises will be to run ./gradlew build to make generate all of the Avro objects from the schemas contained in the /src/main/avro directory.
-
-`./gradlew runStreams -Pargs=standard`
-
 ## How to get started
-1. Execute [start_container.sh](/Users/ajith.shetty/personal_project/spark-kafka-kstreams/start_containers.sh)
-2. Hit the URL http://localhost:18080/
+
+1. Start the Containers 
+   - Execute [start_container.sh](start_containers.sh)
+2. Create topics and push some standard data 
+   - ./gradlew build
+   - ./gradlew runStreams -Pargs=bank
+
+3. Hit the URL http://localhost:18080/
+
 
 start_container.sh script comprises of all the necessary resources which are needed for KAFKA-UI to work.

@@ -32,6 +32,8 @@ dependencies {
     implementation 'org.apache.logging.log4j:log4j-core:2.17.2'
     implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.2'
     implementation 'org.projectlombok:lombok:1.18.28'
+    //implementation 'org.apache.spark:spark-sql_2.12:3.4.0'
+    //implementation 'org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0'
 
     implementation('org.apache.kafka:kafka-streams:2.8.0') {
         exclude group: 'org.apache.kafka', module: 'kafka-clients'
@@ -54,9 +56,27 @@ test {
     }
 }
 
+var basePackage = 'io.confluent.developer.'
+def exerciseMap = [
+        bank: basePackage + 'bank.BankStreams'
+        ]
+
 task runStreams(type: Exec) {
+
+    var streamsFullPath = ''
+
+    if (project.hasProperty("args")) {
+        var exercise = project.getProperty("args")
+        streamsFullPath = exerciseMap[exercise]
+
+        if (streamsFullPath == null) {
+            throw new StopActionException("!!!!!! You entered '${exercise}' for an exercise to run, but that's not a valid entry.  The valid options are ${exerciseMap.keySet()}" )
+        }
         dependsOn assemble
         group = "Execution"
+        println "Using example ${streamsFullPath}"
+        //println "Using path ${sourceSets.main.runtimeClasspath.getAsPath()}"
         description = "Run a Kafka Streams exercise"
-        commandLine "java", "-classpath", sourceSets.main.runtimeClasspath.getAsPath(), "bank.BankStreams"
+        commandLine "java", "-classpath", sourceSets.main.runtimeClasspath.getAsPath(), streamsFullPath
     }
+}

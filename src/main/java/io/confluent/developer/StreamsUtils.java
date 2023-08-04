@@ -1,4 +1,4 @@
-package bank;
+package io.confluent.developer;
 
 import io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde;
 import org.apache.avro.specific.SpecificRecord;
